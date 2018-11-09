@@ -48,6 +48,10 @@ RSpec.describe Prct06 do
 		it "Existe un metodo para obtener el valor energetico" do
 			expect(@etiqueta.get_val_energetico).to eq(8400)
 		end
+
+		it "Existe un m ́etodo para obtener la cantidad de grasas" do
+			expect(@etiqueta.get_grasas).to eq(70)
+		end
 	end
 
 end
