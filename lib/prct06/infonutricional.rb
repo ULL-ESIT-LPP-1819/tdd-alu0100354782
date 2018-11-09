@@ -24,6 +24,10 @@ class InfoNutricional
 		@val_energetico_
 	end
 
+	def get_grasas
+		@grasas_
+	end
+
 		
 end
 
