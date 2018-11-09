@@ -40,6 +40,10 @@ RSpec.describe Prct06 do
 		it "Debe existir la candidad de sal" do
 			expect(@etiqueta.sal_).to eq(6)
 		end
+
+		it "Existe un m ́etodo para obtener el nombre" do
+			expect(@etiqueta.get_nombre).to eq("Pan")
+		end
 	end
 
 end
