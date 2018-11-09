@@ -9,7 +9,7 @@ RSpec.describe Prct06 do
 
 
 	before :each do
-		@etiqueta = InfoNutricional.new("Pan", 70, 40, 260, 90, 50, 6)
+		@etiqueta = InfoNutricional.new("Pan", 70, 40, 260, 90, 50, 6, 8400)
 	end
 
 	describe InfoNutricional do
@@ -41,8 +41,12 @@ RSpec.describe Prct06 do
 			expect(@etiqueta.sal_).to eq(6)
 		end
 
-		it "Existe un m ́etodo para obtener el nombre" do
+		it "Existe un metodo para obtener el nombre" do
 			expect(@etiqueta.get_nombre).to eq("Pan")
+		end
+
+		it "Existe un metodo para obtener el valor energetico" do
+			expect(@etiqueta.get_val_energetico).to eq(8400)
 		end
 	end
 
