@@ -9,7 +9,7 @@ RSpec.describe Prct06 do
 
 
 	before :each do
-		@etiqueta = InfoNutricional.new("Pan", 70, 40, 260, 90, 50)
+		@etiqueta = InfoNutricional.new("Pan", 70, 40, 260, 90, 50, 6)
 	end
 
 	describe InfoNutricional do
@@ -35,6 +35,10 @@ RSpec.describe Prct06 do
 
 		it "Debe existir la candidad de proteınas" do
 			expect(@etiqueta.proteinas_).to eq(50)
+		end
+
+		it "Debe existir la candidad de sal" do
+			expect(@etiqueta.sal_).to eq(6)
 		end
 	end
 
