@@ -60,6 +60,10 @@ RSpec.describe Prct06 do
 		it "Existe un método par obtener la cantidad de hidratos de carbono" do
 			expect(@etiqueta.get_hidratos).to eq(260)
 		end
+		
+		it "Existe un método para obtener la cantidad de azúcares" do
+			expect(@etiqueta.get_azucares).to eq(90)
+		end
 
 	end
 
