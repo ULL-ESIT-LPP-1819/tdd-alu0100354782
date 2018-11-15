@@ -69,6 +69,10 @@ RSpec.describe Prct06 do
 			expect(@etiqueta.get_proteinas).to eq(50)
 		end
 
+		it "Existe un método para obtener la cantidad de sal" do
+			expect(@etiqueta.get_sal).to eq(6)
+		end
+
 	end
 
 end
