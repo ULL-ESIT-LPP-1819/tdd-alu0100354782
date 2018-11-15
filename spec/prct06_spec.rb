@@ -65,6 +65,10 @@ RSpec.describe Prct06 do
 			expect(@etiqueta.get_azucares).to eq(90)
 		end
 
+		it "Existe un método para obtener la cantidad de proteínas" do
+			expect(@etiqueta.get_proteinas).to eq(50)
+		end
+
 	end
 
 end
