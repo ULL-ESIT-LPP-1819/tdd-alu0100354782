@@ -43,6 +43,10 @@ class InfoNutricional
 	def get_proteinas
 		@proteinas_
 	end
+
+	def get_sal
+		@sal_
+	end
 		
 end
 
