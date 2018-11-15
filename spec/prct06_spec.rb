@@ -9,7 +9,7 @@ RSpec.describe Prct06 do
 
 
 	before :each do
-		@etiqueta = InfoNutricional.new("Pan", 70, 20, 260, 90, 50, 6, 8400)
+		@etiqueta = InfoNutricional.new("Pan", 70, 20, 260, 90, 50, 6, 10,5,10,20,10,5,3)
 	end
 
 	describe InfoNutricional do
@@ -45,9 +45,14 @@ RSpec.describe Prct06 do
 			expect(@etiqueta.get_nombre).to eq("Pan")
 		end
 
-		it "Existe un método para obtener el valor energético" do
-			expect(@etiqueta.get_val_energetico).to eq(8400)
+		it "Existe un método para obtener el valor energético en kJ" do
+			expect(@etiqueta.get_val_energetico_kj).to eq(9085)
 		end
+
+		it "Existe un método para obtener el valor energético en kcal" do
+			expect(@etiqueta.get_val_energetico_kcal).to eq(2165)
+		end
+
 
 		it "Existe un método para obtener la cantidad de grasas" do
 			expect(@etiqueta.get_grasas).to eq(70)
