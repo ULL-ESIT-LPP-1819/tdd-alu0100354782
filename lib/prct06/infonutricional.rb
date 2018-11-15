@@ -35,6 +35,10 @@ class InfoNutricional
 	def get_hidratos
 		@hidratos_
 	end
+
+	def get_azucares
+		@azucares_
+	end
 		
 end
 
