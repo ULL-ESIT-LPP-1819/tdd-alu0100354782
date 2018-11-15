@@ -28,6 +28,9 @@ class InfoNutricional
 		@grasas_
 	end
 
+	def get_grasas_saturadas
+		@grasas_saturadas_
+	end
 		
 end
 
