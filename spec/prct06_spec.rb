@@ -78,6 +78,10 @@ RSpec.describe Prct06 do
 			expect(@etiqueta.get_sal).to eq(6)
 		end
 
+		it "Existe un método para obtener la etiqueta formateada" do
+			expect(@etiqueta.to_s).to be_eq(String)
+		end
+
 	end
 
 end
