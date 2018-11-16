@@ -57,6 +57,53 @@ class InfoNutricional
 	def get_sal
 		@sal_
 	end
-		
+
+	def ingesta_referencia(x)
+		suma = @grasas_ + @grasas_saturadas_ + @hidratos_ + 
+				@azucares_ + @proteinas_ + @sal_ + 
+				@grasas_m_ + @grasas_p_ + @polialcoholes_ + 
+				@almidon_ + @fibra_ + @vitaminas_ + @minerales_
+		(x*100)/suma
+	end
+
+	def to_s
+		s =  " \t\t\tPorcion \t IR \n"
+		s +=  " Valor energético\t #{self.get_val_energetico_kj} kJ\t 8.400kJ\n"
+		s +=  "     kJ / kcal \t\t #{self.get_val_energetico_kcal} kcal\t 2000kcal\n"
+		s +=  " Grasas\t\t\t #{@grasas_} g.\t\t #{self.ingesta_referencia(@grasas_)}%\n"
+		s +=  " Grasas saturadas\t #{@grasas_saturadas_} g.\t\t #{self.ingesta_referencia(@grasas_saturadas_)}%\n"
+		s +=  " Hidratos de carbono\t #{@hidratos_} g.\t\t #{self.ingesta_referencia(@hidratos_)}%\n"
+		s +=  " Azúcares\t\t #{@azucares_} g.\t\t #{self.ingesta_referencia(@azucares_)}%\n"
+		s +=  " Proteínas\t\t #{@proteinas_} g.\t\t #{self.ingesta_referencia(@proteinas_)}%\n"
+		s +=  " Sal\t\t\t #{@sal_} g.\t\t #{self.ingesta_referencia(@sal_)}%\n"
+
+		if @grasas_m_
+			s +=  " Grasas monoinsaturadas\t #{@grasas_m_} g.\t\t #{self.ingesta_referencia(@grasas_m_)}%\n"
+        end
+
+        if @grasas_p_
+			s +=  " Grasas polinsaturadas\t #{@grasas_p_} g.\t\t #{self.ingesta_referencia(@grasas_p_)}%\n"
+        end
+
+        if @polialcoholes_
+        	s +=  " Polialcoholes\t\t #{@polialcoholes_} g.\t\t #{self.ingesta_referencia(@polialcoholes_)}%\n"
+        end
+
+        if @almidon_
+        	s +=  " Almidon\t\t #{@almidon_} g.\t\t #{self.ingesta_referencia(@almidon_)}%\n"
+        end
+
+        if @fibra_
+        	s +=  " Fibra alimentaria\t #{@fibra_} g.\t\t #{self.ingesta_referencia(@fibra_)}%\n"
+        end
+
+        if @vitaminas_
+        	s +=  " Vitaminas\t\t #{@vitaminas_} g.\t\t #{self.ingesta_referencia(@vitaminas_)}%\n"
+        end
+
+        if @minerales_
+        	s +=  " Minerales\t\t #{@minerales_} g.\t\t #{self.ingesta_referencia(@minerales_)}%\n"
+        end	
+	end		
 end
 

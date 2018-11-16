@@ -78,8 +78,12 @@ RSpec.describe Prct06 do
 			expect(@etiqueta.get_sal).to eq(6)
 		end
 
+		it "Existe un método para obtener la ingesta de referencia" do
+			expect(@etiqueta.ingesta_referencia(@etiqueta.proteinas_)).to eq(8)
+		end
+
 		it "Existe un método para obtener la etiqueta formateada" do
-			expect(@etiqueta.to_s).to be_eq(String)
+			expect(@etiqueta.to_s).to be_a(String)
 		end
 
 	end
