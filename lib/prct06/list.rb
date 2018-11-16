@@ -18,4 +18,14 @@ class List
 		@tail.next = node unless @tail.nil?
 		@tail = node
 	end
+
+	def extract
+		return nil if self.empty
+		aux = @head
+		@head = @head.next
+		@head.prev = nil unless @head.nil?
+		@tail = nil if @head.nil?
+		aux.next = nil
+		aux
+	end
 end
