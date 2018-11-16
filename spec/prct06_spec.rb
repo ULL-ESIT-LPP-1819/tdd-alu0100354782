@@ -89,17 +89,25 @@ RSpec.describe Prct06 do
 
 	before :each do
 		@chocolate = InfoNutricional.new("Tableta de chocolate", 70, 20, 260, 90, 50, 6, 10,5,10,20,10,5,3)
-		@yogur = InfoNutricional.new("Yogur", 70, 20, 260, 90, 50, 6, 10,5,10,20,10,5,3)
-		@mantequila = InfoNutricional.new("Mantequilla", 70, 20, 260, 90, 50, 6, 10,5,10,20,10,5,3)
-		@mermelada = InfoNutricional.new("Mermelada", 70, 20, 260, 90, 50, 6, 10,5,10,20,10,5,3)
-
+		@yogur = InfoNutricional.new("Yogur", 25, 20, 150, 90, 50, 6, 10,5,10,20,10,5,3)
+		@mantequilla = InfoNutricional.new("Mantequilla", 100, 20, 160, 90, 50, 6, 10,5,10,20,10,5,3)
+		@mermelada = InfoNutricional.new("Mermelada", 70, 20, 260, 70, 30, 6, 10,5,10,20,10,5,3)
+		@pan = InfoNutricional.new("Pan", 0, 20, 60, 100, 50, 2, 10,5,10,20,7,5,1)
+		@manzana = InfoNutricional.new("Pan", 0.5, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
 
 		@lista = List.new(nil, nil)
+
+		@lista.insert(@chocolate)
+        @lista.insert(@yogur)
+		@lista.insert(@mantequilla)
+		@lista.insert(@mermelada)
+		@lista.insert(@pan)
+		@lista.insert(@manzana)
 	end
 
 	describe List do
 		it "Existe lista vacía" do
-			expect(@lista.empty).to be true
+			expect(@lista.empty?).to be false
 		end
 
 		it "Existe un método insertar en la lista" do
@@ -109,6 +117,15 @@ RSpec.describe Prct06 do
 		it "Existe un método para extraer de la lista" do
 			expect(@lista.insert(@yogur)).to be_a(Node)
 			expect(@lista.extract).to be_a(Node)
+		end
+
+		it "Clasificar etiquetas según los gramos de sal" do
+			expect(@chocolate.sal_ < 6).to eq(false)
+			expect(@yogur.sal_ < 6).to eq(false)
+			expect(@mantequilla.sal_ < 6).to eq(false)
+			expect(@mermelada.sal_ < 6).to eq(false)
+			expect(@pan.sal_ < 6).to eq(true)
+			expect(@manzana.sal_ < 6).to eq(true)
 		end
 	end
 

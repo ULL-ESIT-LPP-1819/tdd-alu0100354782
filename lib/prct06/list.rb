@@ -8,7 +8,7 @@ class List
 		@tail = tail
 	end
 
-	def empty
+	def empty?
 		@head.nil?
 	end
 
@@ -20,7 +20,7 @@ class List
 	end
 
 	def extract
-		return nil if self.empty
+		return nil if self.empty?
 		aux = @head
 		@head = @head.next
 		@head.prev = nil unless @head.nil?
