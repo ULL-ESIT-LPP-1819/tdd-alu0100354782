@@ -94,7 +94,7 @@ RSpec.describe Prct06 do
 		#@mermelada = InfoNutricional.new("Mermelada", 70, 20, 260, 90, 50, 6, 10,5,10,20,10,5,3)
 
 
-		@lista = List.new()
+		@lista = List.new(nil, nil)
 	end
 
 	describe List do
