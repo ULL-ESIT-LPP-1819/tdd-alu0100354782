@@ -102,7 +102,7 @@ RSpec.describe Prct06 do
 			expect(@lista.empty).to be true
 		end
 
-		it "Existe método insertar en la lista" do
+		it "Existe un método insertar en la lista" do
 			expect(@lista.insert(@yogur)).to be_a(Node)
 		end
 	end
