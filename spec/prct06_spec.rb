@@ -105,6 +105,10 @@ RSpec.describe Prct06 do
 		it "Existe un método insertar en la lista" do
 			expect(@lista.insert(@yogur)).to be_a(Node)
 		end
+
+		it "Existe un método para extraer de la lista" do
+			expect(@lista.extract).to be_a(Node)
+		end
 	end
 
 end
