@@ -85,7 +85,22 @@ RSpec.describe Prct06 do
 		it "Existe un método para obtener la etiqueta formateada" do
 			expect(@etiqueta.to_s).to be_a(String)
 		end
+	end
 
+	before :each do
+		#@chocolate = InfoNutricional.new("Tableta de chocolate", 70, 20, 260, 90, 50, 6)
+		#@yogur = InfoNutricional.new("Yogur", 70, 20, 260, 90, 50, 6, 10,5,10,20,10,5,3)
+		#@mantequila = InfoNutricional.new("Mantequilla", 70, 20, 260, 90, 50, 6, 10,5,10,20,10,5,3)
+		#@mermelada = InfoNutricional.new("Mermelada", 70, 20, 260, 90, 50, 6, 10,5,10,20,10,5,3)
+
+
+		@lista = List.new()
+	end
+
+	describe List do
+		it "Existe lista vacía" do
+			expect(@lista.empty).to be true
+		end
 	end
 
 end
