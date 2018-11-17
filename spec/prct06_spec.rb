@@ -127,6 +127,11 @@ RSpec.describe Prct06 do
 			expect(@pan.sal_ < 6).to eq(true)
 			expect(@manzana.sal_ < 6).to eq(true)
 		end
+
+		it "Existe un método to_s para la lista" do
+			expect(@lista.to_s). to be_a(String)
+		end
+
 	end
 
 end
