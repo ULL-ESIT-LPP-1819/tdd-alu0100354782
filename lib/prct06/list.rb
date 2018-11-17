@@ -28,4 +28,16 @@ class List
 		aux.next = nil
 		aux
 	end
+
+	def to_s
+		s = ""		
+		node = @head
+		loop do			
+			s += "#{node.value.to_s} \n\n"
+			node = node.next
+			break if node.nil?
+		end
+		s
+	end
+
 end
