@@ -129,9 +129,30 @@ RSpec.describe Prct06 do
 		end
 
 		it "Existe un método to_s para la lista" do
-			expect(@lista.to_s). to be_a(String)
+			expect(@lista.to_s).to be_a(String)
 		end
 
+	end	
+
+	before :each do
+		@juan = Persona.new("Juan", "Díaz")
+		@pedro = Paciente.new("Pedro", "Hernández", true, true, Antropometria.new(25, 70.24, 1.79, 1, 70.35, 81.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [8,8.7,9.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))		
 	end
+
+	describe Persona do
+		it "Comprobar objeto de tipo Persona" do
+			expect(@juan).to be_a(Persona)
+		end
+	end
+
+	describe Paciente do
+		it "Comprobar objeto de tipo Persona" do
+			expect(@pedro).to be_a(Paciente)
+		end
+
+		it "Paciente tiene datos antropométricos" do
+			expect(@pedro.antropometria).to be_a(Antropometria)
+		end
+	end	
 
 end
