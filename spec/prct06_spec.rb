@@ -155,4 +155,19 @@ RSpec.describe Prct06 do
 		end
 	end	
 
+	context "# Pruebas de herencia" do
+
+		it "Comprobando jerarquía" do
+			expect(@juan).to be_a_kind_of(Persona)
+			expect(@juan).not_to be_a_kind_of(Paciente)			
+			expect(@juan).to be_a_kind_of(Object)
+			expect(@juan).to be_a_kind_of(BasicObject)
+
+			expect(@pedro).to be_a_kind_of(Persona)
+			expect(@pedro).to be_a_kind_of(Paciente)
+			expect(@pedro).to be_a_kind_of(Object)
+			expect(@pedro).to be_a_kind_of(BasicObject)
+		end
+	end
+
 end
