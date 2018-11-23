@@ -1,4 +1,3 @@
-require 'pry'
 require 'Persona'
 
 class Paciente < Persona
@@ -17,4 +16,3 @@ class Paciente < Persona
     end
     
 end
-binding.pry
