@@ -143,11 +143,18 @@ RSpec.describe Prct06 do
 		it "Comprobar objeto de tipo Persona" do
 			expect(@juan).to be_a(Persona)
 		end
+		it "Comprobando objeto de tipo Persona" do			
+			expect(@juan.class.name).to eql("Persona")
+		end
 	end
 
 	describe Paciente do
 		it "Comprobar objeto de tipo Persona" do
 			expect(@pedro).to be_a(Paciente)
+		end
+
+		it "Paciente es tipo Persona" do
+			expect(@pedro.is_a?(Persona)).to eq(true)
 		end
 
 		it "Paciente tiene datos antropométricos" do
@@ -156,6 +163,10 @@ RSpec.describe Prct06 do
 	end	
 
 	context "# Pruebas de herencia" do
+		
+		it "Paciente hereda de Persona" do
+			expect(Paciente.superclass.name).to eq("Persona")
+		end
 
 		it "Comprobando jerarquía" do
 			expect(@juan).to be_a_kind_of(Persona)
@@ -167,7 +178,7 @@ RSpec.describe Prct06 do
 			expect(@pedro).to be_a_kind_of(Paciente)
 			expect(@pedro).to be_a_kind_of(Object)
 			expect(@pedro).to be_a_kind_of(BasicObject)
-		end
+		end		
 	end
 
 	before :each do
