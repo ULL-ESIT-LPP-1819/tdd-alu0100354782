@@ -1,3 +1,6 @@
+require_relative 'persona'
+require_relative 'antropometria'
+
 class Paciente < Persona
     
     attr_accessor :consulta, :tratamiento, :antropometria
@@ -11,6 +14,13 @@ class Paciente < Persona
         @consulta = consulta
         @tratamiento = tratamiento
         @antropometria = antropometria
+    end
+
+    def to_s
+        str = super.to_s
+        str += "Consulta: #{@consulta}\n"
+        str += "Tratamiento: #{@tratamiento}\n"
+        str += antropometria.to_s
     end
     
 end
