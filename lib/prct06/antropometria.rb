@@ -45,6 +45,18 @@ class Antropometria
 		end
 
 		return (suma_medidas / medidas.length).round(2)
-	end
+    end
+    
+    def to_s
+        str = "Peso: #{@peso}\n"
+		str += "Altura: #{@talla}\n"
+		str += "Edad: #{@edad}\n"
+		str += "Sexo: #{@sexo}\n"
+		str += "Cincurferencia de la cintura: #{@cintura}\n"
+		str += "Cincurferencia de la cadera: #{@cadera}\n"
+		str += "IMC: #{self.imc}\n"
+		str += "% de grasa: #{self.grasa}\n"
+        str += "RCC: #{self.rcc}\n"
+    end
 
 end
