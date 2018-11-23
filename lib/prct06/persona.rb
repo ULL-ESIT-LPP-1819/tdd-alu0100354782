@@ -4,4 +4,9 @@ class Persona
     def initialize(nombre, apellido)
         @nombre, @apellido = nombre, apellido
     end
+
+    def to_s
+        str = "Nombre: #{@nombre}\n"
+		str += "Apellido: #{@apellido}\n"
+    end
 end
