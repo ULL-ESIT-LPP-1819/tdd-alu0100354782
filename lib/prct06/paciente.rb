@@ -1,5 +1,3 @@
-require 'Persona'
-
 class Paciente < Persona
     
     attr_accessor :consulta, :tratamiento, :antropometria
