@@ -93,7 +93,7 @@ RSpec.describe Prct06 do
 		@mantequilla = InfoNutricional.new("Mantequilla", 100, 20, 160, 90, 50, 6, 10,5,10,20,10,5,3)
 		@mermelada = InfoNutricional.new("Mermelada", 70, 20, 260, 70, 30, 6, 10,5,10,20,10,5,3)
 		@pan = InfoNutricional.new("Pan", 0, 20, 60, 100, 50, 2, 10,5,10,20,7,5,1)
-		@manzana = InfoNutricional.new("Pan", 0.5, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+		@manzana = InfoNutricional.new("Pan", 0.5, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)		
 
 		@lista = List.new(nil, nil)
 
@@ -102,7 +102,7 @@ RSpec.describe Prct06 do
 		@lista.insert(@mantequilla)
 		@lista.insert(@mermelada)
 		@lista.insert(@pan)
-		@lista.insert(@manzana)
+		@lista.insert(@manzana)		
 	end
 
 	describe List do
@@ -209,6 +209,41 @@ RSpec.describe Prct06 do
 
 		it "Mostrando pacientes con IMC > 29.9" do
 			expect(@lpacientes.to_s).to be_a(String)
+		end
+		
+	end	
+
+	context "# Comparando etiquetas" do
+		it "operador >" do		
+			expect(@pan).to be >  @manzana
+		end
+
+		it "operador <" do		
+			expect(@mantequilla).to be <  @chocolate
+		end
+
+		it "operador <=" do		
+			expect(@yogur).to be <=  @chocolate
+		end
+
+		it "operador >=" do		
+			expect(@manzana).to be <=  @mermelada
+		end
+
+		it "operador >=" do		
+			expect(@manzana).to be <=  @mermelada
+		end
+
+		it "operador ==" do
+			expect(@chocolate == @chocolate).to eq(true)
+		end
+
+		it "operador ===" do
+			expect(@chocolate === @chocolate).to eq(true)
+		end
+
+		it "operador !=" do
+			expect(@chocolate != @manzana).to eq(true)
 		end
 		
 	end
