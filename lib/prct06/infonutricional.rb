@@ -3,6 +3,8 @@
 
 class InfoNutricional
 
+	include Comparable
+
 	attr_reader :nombre_, :grasas_, :grasas_saturadas_, :hidratos_, :azucares_, :proteinas_, :sal_, :grasas_m_, :grasas_p_, :polialcoholes_, :almidon_, :fibra_, :vitaminas_, :minerales_
 
 	def initialize(nombre, grasas, grasas_saturadas, hidratos, azucares, proteinas, sal, grasas_m, grasas_p, polialcoholes, almidon, fibra, vitaminas, minerales)
@@ -104,6 +106,14 @@ class InfoNutricional
         if @minerales_
         	s +=  " Minerales\t\t #{@minerales_} g.\t\t #{self.ingesta_referencia(@minerales_)}%\n"
         end	
-	end		
+	end	
+	
+	def <=> (etiqueta)
+		comparacion = self.get_val_energetico_kcal <=> etiqueta.get_val_energetico_kcal
+		if comparacion == 0
+			comparacion @nombre_ <=> etiqueta.nombre_
+		end	
+		comparacion
+	end
 end
 
