@@ -288,7 +288,19 @@ RSpec.describe Prct06 do
 
 		it "método select" do
 			expect(@lista.select{@chocolate}).to eq([2165.0, 1320.0, 2035.0, 2085.0, 705.0, 118.9])
-	  	end
+		end
+		  
+		it "método max" do
+			expect(@lista.max).to eq(2165.0)
+		end
+
+		it "método min" do
+			expect(@lista.min).to eq(118.9)
+		end
+
+		it "método sort" do
+			expect(@lista.sort).to eq([118.9, 705.0, 1320.0, 2035.0, 2085.0, 2165.0])
+		end
 		   
 	end
 
