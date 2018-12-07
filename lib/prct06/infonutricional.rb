@@ -115,5 +115,9 @@ class InfoNutricional
 		end	
 		comparacion
 	end
+
+	def enumerar
+		get_val_energetico_kcal
+	end
 end
 

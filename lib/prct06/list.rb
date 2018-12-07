@@ -1,6 +1,9 @@
 Node = Struct.new(:value, :next, :prev)
 
 class List
+
+	include Enumerable
+
 	attr_accessor :head, :tail
 
 	def initialize(head, tail)
@@ -38,6 +41,17 @@ class List
 			break if node.nil?
 		end
 		s
+	end
+
+	def each
+		node = Node.new(nil,nil,nil)
+		node = @head
+
+		while !(node.nil?)
+			yield node.value.enumerar
+		  node = node.next
+		end
+
 	end
 
 end
