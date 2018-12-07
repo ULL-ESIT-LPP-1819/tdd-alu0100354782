@@ -281,4 +281,15 @@ RSpec.describe Prct06 do
 		end	
 	end
 
+	context "# Enumerar listas de etiquetas de información nutricional" do
+		it "método collect" do
+			expect(@lista.collect{1}).to eq([1, 1, 1, 1, 1, 1])
+		end
+
+		it "método select" do
+			expect(@lista.select{@chocolate}).to eq([2165.0, 1320.0, 2035.0, 2085.0, 705.0, 118.9])
+	  	end
+		   
+	end
+
 end
