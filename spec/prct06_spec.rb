@@ -182,10 +182,10 @@ RSpec.describe Prct06 do
 	end
 
 	before :each do
-		@ana = Paciente.new("Ana", "Hernández", true, true, Antropometria.new(35, 50.24, 1.55, 0, 48.95, 81.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [6,8.7,8.2], [7,7,5], [10,8.9,9,4], [10,10.5], [6,7]))	
-		@maria = Paciente.new("María", "Suárez", true, true, Antropometria.new(28, 70.24, 1.79, 0, 65.35, 81.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [6,7.7,5.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
-		@manuel = Paciente.new("Manuel", "Glez", true, true, Antropometria.new(50, 80.44, 1.59, 1, 68.35, 81.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [7,8.3,5.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
-		@jose = Paciente.new("José", "Hernández", true, true, Antropometria.new(43, 85.44, 1.89, 1, 70.35, 81.5, [5.8, 6, 5.2], [5,5,7], [20,18,21], [12,10,11.4], [6.1,7.1,5.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
+		@ana = Paciente.new("Ana", "Hernández", true, true, Antropometria.new(35, 50.24, 1.55, 0, 48.95, 60.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [6,8.7,8.2], [7,7,5], [10,8.9,9,4], [10,10.5], [6,7]))	
+		@maria = Paciente.new("María", "Suárez", true, true, Antropometria.new(28, 70.24, 1.79, 0, 65.35, 75.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [6,7.7,5.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
+		@manuel = Paciente.new("Manuel", "Glez", true, true, Antropometria.new(50, 80.44, 1.59, 1, 68.35, 80.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [7,8.3,5.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
+		@jose = Paciente.new("José", "Hernández", true, true, Antropometria.new(43, 85.44, 1.89, 1, 70.35, 72.5, [5.8, 6, 5.2], [5,5,7], [20,18,21], [12,10,11.4], [6.1,7.1,5.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
 		@belen = Paciente.new("Belén", "Márquez", true, true, Antropometria.new(31, 60.24, 1.72, 0, 70.35, 81.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [8,8.7,9.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
 
 		@lpacientes = List.new(nil, nil)
@@ -249,7 +249,7 @@ RSpec.describe Prct06 do
 
 	context "# Comparando pacientes" do
 		it "operador >" do		
-			expect(@ana).to be >  @maria
+			expect(@maria).to be >  @ana
 		end
 
 		it "operador <" do		
@@ -257,7 +257,7 @@ RSpec.describe Prct06 do
 		end
 
 		it "operador <=" do		
-			expect(@manuel).to be <=  @maria
+			expect(@maria).to be <=  @manuel
 		end
 
 		it "operador >=" do		
@@ -265,7 +265,7 @@ RSpec.describe Prct06 do
 		end
 
 		it "operador >=" do		
-			expect(@jose).to be <=  @maria
+			expect(@maria).to be <=  @jose
 		end
 
 		it "operador ==" do

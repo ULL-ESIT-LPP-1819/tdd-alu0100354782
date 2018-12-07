@@ -1,4 +1,7 @@
 class Persona
+
+    include Comparable
+
     attr_reader :nombre, :apellido
 
     def initialize(nombre, apellido)

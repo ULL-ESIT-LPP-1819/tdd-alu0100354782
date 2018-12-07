@@ -22,5 +22,13 @@ class Paciente < Persona
         str += "Tratamiento: #{@tratamiento}\n"
         str += antropometria.to_s
     end
+
+    def <=> (paciente)
+		comparacion = self.antropometria.imc <=> paciente.antropometria.imc
+		if comparacion == 0
+			comparacion self.apellido <=> paciente.apellido
+		end	
+		comparacion
+	end
     
 end
