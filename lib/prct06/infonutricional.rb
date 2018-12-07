@@ -1,5 +1,6 @@
 #
 # Representa etiquetas de alimentos con datos nutricionales
+# @author Sergio Reyes de León
 #
 class InfoNutricional
 

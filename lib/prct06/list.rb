@@ -2,6 +2,7 @@ Node = Struct.new(:value, :next, :prev)
 
 #
 # Representa listas doblemente enlazadas
+# @author Sergio Reyes de León
 #
 class List
 

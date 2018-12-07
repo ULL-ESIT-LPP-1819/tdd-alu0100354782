@@ -5,6 +5,7 @@ require_relative 'antropometria'
 # Representa individuos de tipo Persona que además
 # tienen datos como si pertenece a una consulta, 
 # si está en tratamiento y su atropometría
+# @author Sergio Reyes de León
 #
 class Paciente < Persona
     
