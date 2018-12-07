@@ -1,5 +1,8 @@
 Node = Struct.new(:value, :next, :prev)
 
+#
+# Representa listas doblemente enlazadas
+#
 class List
 
 	include Enumerable

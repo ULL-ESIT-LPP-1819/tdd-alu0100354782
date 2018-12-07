@@ -1,6 +1,6 @@
-
-
-
+#
+# Representa etiquetas de alimentos con datos nutricionales
+#
 class InfoNutricional
 
 	include Comparable

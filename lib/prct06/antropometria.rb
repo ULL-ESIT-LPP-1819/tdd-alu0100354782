@@ -1,3 +1,6 @@
+#
+# Representa los datos antropométricos de un individuo
+#
 class Antropometria
     
     attr_reader :edad, :peso, :talla, :sexo,

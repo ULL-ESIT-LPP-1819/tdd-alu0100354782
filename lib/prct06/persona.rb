@@ -1,3 +1,7 @@
+#
+# Representa individuos, 
+# contiene nombre y apellido del individuo
+#
 class Persona
 
     include Comparable
