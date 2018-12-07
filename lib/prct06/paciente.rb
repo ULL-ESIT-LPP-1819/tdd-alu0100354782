@@ -31,4 +31,8 @@ class Paciente < Persona
 		comparacion
 	end
     
+    def enumerar
+        antropometria.imc
+    end
+
 end
