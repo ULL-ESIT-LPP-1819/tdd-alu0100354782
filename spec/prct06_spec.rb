@@ -304,4 +304,27 @@ RSpec.describe Prct06 do
 		   
 	end
 
+	context "# Enumerar listas de pacientes" do
+		it "método collect" do
+			expect(@lpacientes.collect{9}).to eq([9, 9, 9, 9, 9])
+		end
+
+		it "método select" do
+			expect(@lpacientes.select{@jose}).to eq([20.91, 21.92, 31.82, 23.92, 20.36])
+		end
+		  
+		it "método max" do
+			expect(@lpacientes.max).to eq(31.82)
+		end
+
+		it "método min" do
+			expect(@lpacientes.min).to eq(20.36)
+		end
+
+		it "método sort" do
+			expect(@lpacientes.sort).to eq([20.36, 20.91, 21.92, 23.92, 31.82])
+		end
+		   
+	end
+
 end
