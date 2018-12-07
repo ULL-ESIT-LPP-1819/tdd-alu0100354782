@@ -244,8 +244,41 @@ RSpec.describe Prct06 do
 
 		it "operador !=" do
 			expect(@chocolate != @manzana).to eq(true)
+		end		
+	end
+
+	context "# Comparando pacientes" do
+		it "operador >" do		
+			expect(@ana).to be >  @maria
 		end
-		
+
+		it "operador <" do		
+			expect(@maria).to be <  @jose
+		end
+
+		it "operador <=" do		
+			expect(@manuel).to be <=  @maria
+		end
+
+		it "operador >=" do		
+			expect(@belen).to be <=  @ana
+		end
+
+		it "operador >=" do		
+			expect(@jose).to be <=  @maria
+		end
+
+		it "operador ==" do
+			expect(@manuel == @manuel).to eq(true)
+		end
+
+		it "operador ===" do
+			expect(@ana === @ana).to eq(true)
+		end
+
+		it "operador !=" do
+			expect(@jose != @belen).to eq(true)
+		end	
 	end
 
 end
