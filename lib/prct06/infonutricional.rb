@@ -8,6 +8,24 @@ class InfoNutricional
 
 	attr_reader :nombre_, :grasas_, :grasas_saturadas_, :hidratos_, :azucares_, :proteinas_, :sal_, :grasas_m_, :grasas_p_, :polialcoholes_, :almidon_, :fibra_, :vitaminas_, :minerales_
 
+	#
+	# Constructor
+	#
+	# @param [<Type>] nombre <description>
+	# @param [<Type>] grasas <description>
+	# @param [<Type>] grasas_saturadas <description>
+	# @param [<Type>] hidratos <description>
+	# @param [<Type>] azucares <description>
+	# @param [<Type>] proteinas <description>
+	# @param [<Type>] sal <description>
+	# @param [<Type>] grasas_m <description>
+	# @param [<Type>] grasas_p <description>
+	# @param [<Type>] polialcoholes <description>
+	# @param [<Type>] almidon <description>
+	# @param [<Type>] fibra <description>
+	# @param [<Type>] vitaminas <description>
+	# @param [<Type>] minerales <description>
+	#
 	def initialize(nombre, grasas, grasas_saturadas, hidratos, azucares, proteinas, sal, grasas_m, grasas_p, polialcoholes, almidon, fibra, vitaminas, minerales)
 		@nombre_ = nombre
 		@grasas_ = grasas
@@ -25,42 +43,94 @@ class InfoNutricional
 		@minerales_ = minerales
 	end
 
+	#
+	# Getter de nombre
+	#
+	# @return [String] <description>
+	#
 	def get_nombre
 		@nombre_
 	end	
 
+	#
+	# Getter de val_energetico_kj
+	#
+	# @return [float] valor energético en kj
+	#
 	def get_val_energetico_kj
 		@grasas_*37 + @grasas_m_*37 + @grasas_p_*37 + @hidratos_*17 + @polialcoholes_*10 + @almidon_*17 + @fibra_*8 + @proteinas_*17 + @sal_*25
 	end
 
+	#
+	# Getter de val_energetico_kcal
+	#
+	# @return [float] valor energético en kcal
+	#
 	def get_val_energetico_kcal
 		@grasas_*9 + @grasas_m_*9 + @grasas_p_*9 + @hidratos_*4 + @polialcoholes_*2.4 + @almidon_*4 + @fibra_*2 + @proteinas_*4 + @sal_*6
 	end
 
+	#
+	# Getter de grasas
+	#
+	# @return [float] cantidad de grasas
+	#
 	def get_grasas
 		@grasas_
 	end
 
+	#
+	# Getter de grasas saturadas
+	#
+	# @return [float] cantidad de grasas saturadas
+	#
 	def get_grasas_saturadas
 		@grasas_saturadas_
 	end
 
+	#
+	# Getter de hidratos
+	#
+	# @return [float] cantidad de hidratos de carbono
+	#
 	def get_hidratos
 		@hidratos_
 	end
 
+	#
+	# Getter de azúcares
+	#
+	# @return [float] cantidad de azúcares
+	#
 	def get_azucares
 		@azucares_
 	end
 
+	#
+	# Getter de proteinas
+	#
+	# @return [float] cantidad de grasas
+	#
 	def get_proteinas
 		@proteinas_
 	end
 
+	#
+	# Getter de sal
+	#
+	# @return [float] cantidad de sal
+	#
 	def get_sal
 		@sal_
 	end
 
+	#
+	# Calcular ingesta de referencia sobre la base de 100g o 100ml
+	#
+	# @param [float] x cantidad en gramos
+	#
+	# @return [float] Ingesta de referencia
+	#
 	def ingesta_referencia(x)
 		suma = @grasas_ + @grasas_saturadas_ + @hidratos_ + 
 				@azucares_ + @proteinas_ + @sal_ + 
@@ -69,6 +139,11 @@ class InfoNutricional
 		(x*100)/suma
 	end
 
+	#
+	# Sobrecarga del método to_s
+	#
+	# @return [String] información nutricional
+	#
 	def to_s
 		s =  " \t\t\tPorcion \t IR \n"
 		s +=  " Valor energético\t #{self.get_val_energetico_kj} kJ\t 8.400kJ\n"
@@ -109,6 +184,13 @@ class InfoNutricional
         end	
 	end	
 	
+	#
+	# Sobrecarga de los operadores < = >
+	#
+	# @param [InfoNutricional] etiqueta objeto con el que se compara
+	#
+	# @return [int] -1 para self < paciente, 0 para self = paciente, 1 para self > paciente
+	#
 	def <=> (etiqueta)
 		comparacion = self.get_val_energetico_kcal <=> etiqueta.get_val_energetico_kcal
 		if comparacion == 0

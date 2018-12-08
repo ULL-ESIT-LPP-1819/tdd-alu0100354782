@@ -5,6 +5,9 @@ require "prct06/persona"
 require "prct06/paciente"
 require "prct06/antropometria"
 
+#
+# <Description>
+#
 module Prct06
   # Your code goes here...
 end
