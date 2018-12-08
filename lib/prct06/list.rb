@@ -54,7 +54,7 @@ class List
 		node = @head
 
 		while !(node.nil?)
-			yield node.value
+			yield node.value.enumerar
 			node = node.next
 		end
 

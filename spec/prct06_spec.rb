@@ -114,9 +114,8 @@ RSpec.describe Prct06 do
 			expect(@lista.insert(@yogur)).to be_a(Node)
 		end
 
-		it "Existe un método para extraer de la lista" do
-			expect(@lista.insert(@yogur)).to be_a(Node)
-			expect(@lista.extract).to be_a(Node)
+		it "Existe un método para extraer de la lista" do			
+			expect(@lista.extract).to be_a(InfoNutricional)
 		end
 
 		it "Clasificar etiquetas según los gramos de sal" do
@@ -200,11 +199,11 @@ RSpec.describe Prct06 do
 	context "# Clasificación según ı́ndice de masa corporal" do
 
 		it "Comprobando IMC < 29.9" do			
-			expect(@lpacientes.extract.value.antropometria.imc < 29.9).to eq(true)
-			expect(@lpacientes.extract.value.antropometria.imc < 29.9).to eq(true)
-			expect(@lpacientes.extract.value.antropometria.imc < 29.9).to eq(false)
-			expect(@lpacientes.extract.value.antropometria.imc < 29.9).to eq(true)
-			expect(@lpacientes.extract.value.antropometria.imc < 29.9).to eq(true)			
+			expect(@lpacientes.extract.antropometria.imc < 29.9).to eq(true)
+			expect(@lpacientes.extract.antropometria.imc < 29.9).to eq(true)
+			expect(@lpacientes.extract.antropometria.imc < 29.9).to eq(false)
+			expect(@lpacientes.extract.antropometria.imc < 29.9).to eq(true)
+			expect(@lpacientes.extract.antropometria.imc < 29.9).to eq(true)			
 		end
 
 		it "Mostrando pacientes con IMC > 29.9" do
@@ -287,7 +286,7 @@ RSpec.describe Prct06 do
 		end
 
 		it "método select" do
-			expect(@lista.select{@chocolate}).to eq([2165.0, 1320.0, 2035.0, 2085.0, 705.0, 118.9])
+			expect(@lista.select{|kcal| kcal>2000}).to eq([2165.0, 2035.0, 2085.0])
 		end
 		  
 		it "método max" do
@@ -310,7 +309,7 @@ RSpec.describe Prct06 do
 		end
 
 		it "método select" do
-			expect(@lpacientes.select{@jose}).to eq([20.91, 21.92, 31.82, 23.92, 20.36])
+			expect(@lpacientes.select{|imc| imc>29.9}).to eq([31.82])
 		end
 		  
 		it "método max" do
