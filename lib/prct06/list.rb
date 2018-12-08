@@ -94,13 +94,8 @@ class List
 		node = @head
 
 		while !(node.nil?)
-<<<<<<< HEAD
-			yield node.value			
-		  node = node.next
-=======
-			yield node.value
+			yield node.value.enumerar
 			node = node.next
->>>>>>> prct09
 		end
 
 	end
