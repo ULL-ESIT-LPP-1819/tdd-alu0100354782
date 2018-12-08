@@ -109,11 +109,7 @@ class InfoNutricional
 	end	
 	
 	def <=> (etiqueta)
-		comparacion = self.get_val_energetico_kcal <=> etiqueta.get_val_energetico_kcal
-		if comparacion == 0
-			comparacion @nombre_ <=> etiqueta.nombre_
-		end	
-		comparacion
+		get_val_energetico_kcal <=> etiqueta.get_val_energetico_kcal		
 	end
 
 	def enumerar
