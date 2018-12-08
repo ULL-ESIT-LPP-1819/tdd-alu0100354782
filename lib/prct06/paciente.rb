@@ -57,11 +57,7 @@ class Paciente < Persona
     # @return [int] -1 para self < paciente, 0 para self = paciente, 1 para self > paciente
     #
     def <=> (paciente)
-		comparacion = self.antropometria.imc <=> paciente.antropometria.imc
-		if comparacion == 0
-			comparacion self.apellido <=> paciente.apellido
-		end	
-		comparacion
+		antropometria.imc <=> paciente.antropometria.imc
 	end
     
     def enumerar

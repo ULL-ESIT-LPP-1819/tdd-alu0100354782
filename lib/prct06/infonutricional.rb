@@ -192,11 +192,7 @@ class InfoNutricional
 	# @return [int] -1 para self < paciente, 0 para self = paciente, 1 para self > paciente
 	#
 	def <=> (etiqueta)
-		comparacion = self.get_val_energetico_kcal <=> etiqueta.get_val_energetico_kcal
-		if comparacion == 0
-			comparacion @nombre_ <=> etiqueta.nombre_
-		end	
-		comparacion
+		get_val_energetico_kcal <=> etiqueta.get_val_energetico_kcal		
 	end
 
 	def enumerar
