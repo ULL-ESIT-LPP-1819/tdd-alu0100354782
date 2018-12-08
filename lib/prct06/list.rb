@@ -16,21 +16,27 @@ class List
 	end
 
 	def insert(value)
-		node = Node.new(value, nil, @tail)
-		@head = node if @head.nil?
-		@tail.next = node unless @tail.nil?
-		@tail = node
+		if @head  == nil
+			@head = Node.new(value,nil,nil)
+			@tail = @head
+		else
+			node = Node.new(value,nil,@tail)
+			@tail.next = node
+			@tail = node
+		end
 	end
 
 	def extract
-		return nil if self.empty?
-		aux = @head
-		@head = @head.next
-		@head.prev = nil unless @head.nil?
-		@tail = nil if @head.nil?
-		aux.next = nil
-		aux
-	end
+		if @head == nil
+			@head = nil
+			@tail = nil
+			return nil
+		else
+			pop = @head
+			@head = @head.next
+			return pop.value
+		end
+	end		
 
 	def to_s
 		s = ""		
@@ -48,8 +54,8 @@ class List
 		node = @head
 
 		while !(node.nil?)
-			yield node.value.enumerar
-		  node = node.next
+			yield node.value
+			node = node.next
 		end
 
 	end
