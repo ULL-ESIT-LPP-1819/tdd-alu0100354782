@@ -283,7 +283,7 @@ RSpec.describe Prct06 do
 
 	context "# Enumerar listas de etiquetas de información nutricional" do
 		it "método collect" do
-			expect(@lista.collect{1}).to eq([1, 1, 1, 1, 1, 1])
+			expect(@lista.collect{@pan.nombre_}).to eq(["Pan", "Pan", "Pan", "Pan", "Pan", "Pan"])
 		end
 
 		it "método select" do
@@ -306,7 +306,7 @@ RSpec.describe Prct06 do
 
 	context "# Enumerar listas de pacientes" do
 		it "método collect" do
-			expect(@lpacientes.collect{9}).to eq([9, 9, 9, 9, 9])
+			expect(@lpacientes.collect{@jose.nombre}).to eq(["José", "José", "José", "José", "José"])
 		end
 
 		it "método select" do
