@@ -9,7 +9,7 @@ require_relative 'antropometria'
 #
 class Paciente < Persona
     
-    attr_accessor :consulta, :tratamiento, :antropometria
+    attr_accessor :consulta, :tratamiento, :antropometria, :actividad_fisica
 
     #
     # Constructor 
@@ -19,6 +19,18 @@ class Paciente < Persona
     #
     def initialize(nombre, apellido)
         super(nombre,apellido)
+    end
+
+    #
+    # Contructor con nivel de actividad física
+    #
+    # @param [String] nombre nombre paciente
+    # @param [String] apellido apellido paciente
+    # @param [String] actividad_fisica nivel de actividad física de la persona
+    #
+    def initialize(nombre, apellido, actividad_fisica)
+        super(nombre,apellido)
+        @actividad_fisica = actividad_fisica
     end
 
     #
