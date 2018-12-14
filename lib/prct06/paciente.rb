@@ -70,8 +70,8 @@ class Paciente < Persona
         gasto_energetico_basal * actividad_fisica
     end
 
-    # def gasto_energetico_total
-
-    # end
+    def gasto_energetico_total
+        gasto_energetico_basal + efecto_termogeno + gasto_actividad_fisica
+    end
 
 end
