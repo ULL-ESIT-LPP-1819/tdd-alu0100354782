@@ -66,5 +66,12 @@ class Paciente < Persona
         gasto_energetico_basal * 10
     end
 
+    def gasto_actividad_fisica
+        gasto_energetico_basal * actividad_fisica
+    end
+
+    # def gasto_energetico_total
+
+    # end
 
 end
