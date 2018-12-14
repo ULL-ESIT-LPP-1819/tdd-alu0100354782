@@ -328,11 +328,11 @@ RSpec.describe Prct06 do
 
 	context "# Menús dietéticos" do
 		before :each do
-			@ana = Paciente.new("Ana", "Hernández", true, true, Antropometria.new(35, 50.24, 155, 0, 48.95, 60.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [6,8.7,8.2], [7,7,5], [10,8.9,9,4], [10,10.5], [6,7]))	
-			@maria = Paciente.new("María", "Suárez", true, true, Antropometria.new(28, 70.24, 179, 0, 65.35, 75.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [6,7.7,5.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
-			@manuel = Paciente.new("Manuel", "Glez", true, true, Antropometria.new(50, 80.44, 159, 1, 68.35, 80.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [7,8.3,5.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
-			@jose = Paciente.new("José", "Hernández", true, true, Antropometria.new(43, 85.44, 189, 1, 70.35, 72.5, [5.8, 6, 5.2], [5,5,7], [20,18,21], [12,10,11.4], [6.1,7.1,5.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
-			@belen = Paciente.new("Belén", "Márquez", true, true, Antropometria.new(31, 60.24, 172, 0, 70.35, 81.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [8,8.7,9.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
+			@ana = Paciente.new("Ana", "Hernández", true, true, Antropometria.new(35, 50.24, 1.55, 0, 48.95, 60.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [6,8.7,8.2], [7,7,5], [10,8.9,9,4], [10,10.5], [6,7]))	
+			@maria = Paciente.new("María", "Suárez", true, true, Antropometria.new(28, 70.24, 1.79, 0, 65.35, 75.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [6,7.7,5.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
+			@manuel = Paciente.new("Manuel", "Glez", true, true, Antropometria.new(50, 80.44, 1.59, 1, 68.35, 80.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [7,8.3,5.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
+			@jose = Paciente.new("José", "Hernández", true, true, Antropometria.new(43, 85.44, 1.89, 1, 70.35, 72.5, [5.8, 6, 5.2], [5,5,7], [20,18,21], [12,10,11.4], [6.1,7.1,5.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
+			@belen = Paciente.new("Belén", "Márquez", true, true, Antropometria.new(31, 60.24, 1.72, 0, 70.35, 81.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [8,8.7,9.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
 
 			@ana.actividad_fisica = 0.0
 			@maria.actividad_fisica = 0.12
@@ -341,36 +341,57 @@ RSpec.describe Prct06 do
 			@belen.actividad_fisica = 0.54
 
 			@arrayPacientes = [@ana, @maria, @manuel, @jose, @belen]
+
+			@macedonia = InfoNutricional.new("macedonia", 0.5, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)	
+			@potaje = InfoNutricional.new("potaje", 35, 0.1, 28, 9, 30, 1, 1,5,1,2,8,5,3)
+			@solomillo = InfoNutricional.new("solomillo", 0.5, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@lasagna = InfoNutricional.new("lasagna", 60, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@sopa = InfoNutricional.new("sopa", 0.5, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@cocido = InfoNutricional.new("cocido", 45, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@ensalada = InfoNutricional.new("ensalada", 15, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@merluza = InfoNutricional.new("merluza", 55, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@arroz = InfoNutricional.new("arroz", 20, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@flan = InfoNutricional.new("flan", 15, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@garbanzas = InfoNutricional.new("garbanzas", 50, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+
+			@menu1 = [@lasagna, @merluza, @arroz, @flan]
+			@menu2 = [@potaje, @solomillo, @ensalada, @macedonia]
+			@menu3 = [@garbanzas, @merluza, @arroz, @macedonia]
+			@menu4 = [@sopa, @cocido, @garbanzas, @flan]
+
+			@menus = @menu1.zip(@menu2,@menu3,@menu4)
 		end
 
 		it "Calculando peso teórico ideal" do						
-			expect(@arrayPacientes.collect {|x| (x.antropometria.talla - 150) * 0.75 + 50}).to eq([53.75, 71.75, 56.75, 79.25, 66.5])
+			expect(@arrayPacientes.collect {|x| ((x.antropometria.talla*100 - 150) * 0.75 + 50)}).to eq([53.75, 71.75, 56.75, 79.25, 66.5])
 		end
 
 		it "Probando cálculo de gasto energético basal (mujeres)" do
-			expect(@ana.gasto_energetico_basal).to eq(1135.15)
-			expect(@belen.gasto_energetico_basal).to eq(1361.4)
+			expect(@ana.gasto_energetico_basal).to eq(176.09)
+			expect(@belen.gasto_energetico_basal).to eq(297.15)
 		end
 
 		it "Probando cálculo de gasto energético basal (hombres)" do
-			expect(@jose.gasto_energetico_basal).to eq(1825.65)
-			expect(@manuel.gasto_energetico_basal).to eq(1553.15)
+			expect(@jose.gasto_energetico_basal).to eq(656.21)
+			expect(@manuel.gasto_energetico_basal).to eq(569.34)
 		end
 
 		it "Probando cálculo de efecto termógeno" do
-			expect(@maria.efecto_termogeno).to eq(15201.5)
-			expect(@manuel.efecto_termogeno).to eq(15531.5)
+			expect(@maria.efecto_termogeno).to eq(4125.9)
+			expect(@manuel.efecto_termogeno).to eq(5693.4)
 		end
 
 		it "Probando cálculo de gasto actividad física" do
-			expect(@maria.gasto_actividad_fisica).to eq(182.418)
-			expect(@jose.gasto_actividad_fisica).to eq(985.8510000000001)
+			expect(@maria.gasto_actividad_fisica).to eq(49.51)
+			expect(@jose.gasto_actividad_fisica).to eq(354.35)
 		end
 
 		it "Probando cálculo de gasto energético total" do
-			expect(@belen.gasto_energetico_total).to eq(15710.556)
-			expect(@manuel.gasto_energetico_total).to eq(17504.000500000002)
+			expect(@belen.gasto_energetico_total).to eq(3429.11)
+			expect(@manuel.gasto_energetico_total).to eq(6416.46)
 		end
+
+		
 	end
 
 end
