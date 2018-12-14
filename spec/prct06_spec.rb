@@ -343,8 +343,18 @@ RSpec.describe Prct06 do
 			@arrayPacientes = [@ana, @maria, @manuel, @jose, @belen]
 		end
 
-		it "peso teórico ideal" do						
+		it "Calculando peso teórico ideal" do						
 			expect(@arrayPacientes.collect {|x| (x.antropometria.talla - 150) * 0.75 + 50}).to eq([53.75, 71.75, 56.75, 79.25, 66.5])
+		end
+
+		it "Probando cálculo de gasto energético basal (mujeres)" do
+			expect(@ana.gasto_energetico_basal).to eq(1135.15)
+			expect(@belen.gasto_energetico_basal).to eq(1361.4)
+		end
+
+		it "Probando cálculo de gasto energético basal (hombres)" do
+			expect(@jose.gasto_energetico_basal).to eq(1825.65)
+			expect(@manuel.gasto_energetico_basal).to eq(1553.15)
 		end
 	end
 
