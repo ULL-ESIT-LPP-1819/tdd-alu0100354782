@@ -356,6 +356,11 @@ RSpec.describe Prct06 do
 			expect(@jose.gasto_energetico_basal).to eq(1825.65)
 			expect(@manuel.gasto_energetico_basal).to eq(1553.15)
 		end
+
+		it "Probando cálculo de efecto termógeno" do
+			expect(@maria.efecto_termogeno).to eq(15201.5)
+			expect(@manuel.efecto_termogeno).to eq(15531.5)
+		end
 	end
 
 end
