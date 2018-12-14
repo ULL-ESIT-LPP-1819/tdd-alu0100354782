@@ -361,6 +361,11 @@ RSpec.describe Prct06 do
 			expect(@maria.efecto_termogeno).to eq(15201.5)
 			expect(@manuel.efecto_termogeno).to eq(15531.5)
 		end
+
+		it "Probando cálculo de gasto actividad física" do
+			expect(@maria.gasto_actividad_fisica).to eq(182.418)
+			expect(@jose.gasto_actividad_fisica).to eq(985.8510000000001)
+		end
 	end
 
 end
