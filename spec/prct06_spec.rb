@@ -345,19 +345,25 @@ RSpec.describe Prct06 do
 			@macedonia = InfoNutricional.new("macedonia", 0.5, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)	
 			@potaje = InfoNutricional.new("potaje", 35, 0.1, 28, 9, 30, 1, 1,5,1,2,8,5,3)
 			@solomillo = InfoNutricional.new("solomillo", 0.5, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
-			@lasagna = InfoNutricional.new("lasagna", 60, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
-			@sopa = InfoNutricional.new("sopa", 0.5, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
-			@cocido = InfoNutricional.new("cocido", 45, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@lasagna = InfoNutricional.new("lasagna", 60, 0.1, 30, 9, 5, 1, 1,5,1,2,8,5,3)
+			@sopa = InfoNutricional.new("sopa", 0.5, 0.1, 2, 9, 15, 1, 1,5,1,2,8,5,3)
+			@cocido = InfoNutricional.new("cocido", 45, 0.1, 2, 20, 5, 1, 1,5,1,2,8,5,3)
 			@ensalada = InfoNutricional.new("ensalada", 15, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
 			@merluza = InfoNutricional.new("merluza", 55, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
 			@arroz = InfoNutricional.new("arroz", 20, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
 			@flan = InfoNutricional.new("flan", 15, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
 			@garbanzas = InfoNutricional.new("garbanzas", 50, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@pollo = InfoNutricional.new("pollo", 50, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@yogur = InfoNutricional.new("Yogur", 25, 20, 150, 90, 50, 6, 10,5,10,20,10,5,3)
+			@paella = InfoNutricional.new("paella", 100, 20, 160, 90, 50, 6, 10,5,10,20,10,5,3)
+			@cereales = InfoNutricional.new("Mermelada", 70, 20, 260, 70, 30, 6, 10,5,10,20,10,5,3)
+			@pan = InfoNutricional.new("Pan", 1, 20, 60, 100, 50, 2, 10,5,10,20,7,5,1)
+			@manzana = InfoNutricional.new("manzana", 0.5, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)		
 
 			@menu1 = [@lasagna, @merluza, @arroz, @flan]
-			@menu2 = [@potaje, @solomillo, @ensalada, @macedonia]
-			@menu3 = [@garbanzas, @merluza, @arroz, @macedonia]
-			@menu4 = [@sopa, @cocido, @garbanzas, @flan]
+			@menu2 = [@potaje, @arroz, @lasagna, @garbanzas, @solomillo, @pollo, @ensalada, @macedonia, @flan, @manzana]
+			@menu3 = [@garbanzas, @merluza, @arroz, @macedonia, @yogur, @cereales]
+			@menu4 = [@sopa, @cocido, @garbanzas, @flan, @pan, @solomillo, @pollo, @ensalada, @merluza, @yogur, @paella]
 
 			@menus = @menu1.zip(@menu2,@menu3,@menu4)
 		end
@@ -391,7 +397,13 @@ RSpec.describe Prct06 do
 			expect(@manuel.gasto_energetico_total).to eq(6416.46)
 		end
 
-		
+		it "Comprobando pacientes que casan con un menú" do		
+			expect(@arrayPacientes.select{|x| @menu1.collect{|i| i.get_val_energetico_kcal}.reduce(:+).between?(x.gasto_energetico_total*0.9,x.gasto_energetico_total*1.1)}).to eq([@ana])
+			expect(@arrayPacientes.select{|x| @menu2.collect{|i| i.get_val_energetico_kcal}.reduce(:+).between?(x.gasto_energetico_total*0.9,x.gasto_energetico_total*1.1)}).to eq([@belen])
+			expect(@arrayPacientes.select{|x| @menu3.collect{|i| i.get_val_energetico_kcal}.reduce(:+).between?(x.gasto_energetico_total*0.9,x.gasto_energetico_total*1.1)}).to eq([@maria])
+			expect(@arrayPacientes.select{|x| @menu4.collect{|i| i.get_val_energetico_kcal}.reduce(:+).between?(x.gasto_energetico_total*0.9,x.gasto_energetico_total*1.1)}).to eq([@jose])			
+		end
+
 	end
 
 end
