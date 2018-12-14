@@ -62,9 +62,9 @@ class Paciente < Persona
     #
     def gasto_energetico_basal
         if(antropometria.sexo == 0)
-            (10 * antropometria.peso) + (6.25 * antropometria.talla) - (5* antropometria.edad) - 161
+            ((10 * antropometria.peso) + (6.25 * antropometria.talla) - (5* antropometria.edad) - 161).round(2)
         else 
-            (10 * antropometria.peso) + (6.25 * antropometria.talla) - (5* antropometria.edad) + 5
+            ((10 * antropometria.peso) + (6.25 * antropometria.talla) - (5* antropometria.edad) + 5).round(2)
         end
     end
 
@@ -75,7 +75,7 @@ class Paciente < Persona
     # @return [Float] efecto termógeno
     #
     def efecto_termogeno
-        gasto_energetico_basal * 10
+        (gasto_energetico_basal * 10).round(2)
     end
 
     #
@@ -84,7 +84,7 @@ class Paciente < Persona
     # @return [Float] gasto energético por actividad física
     #
     def gasto_actividad_fisica
-        gasto_energetico_basal * actividad_fisica
+        (gasto_energetico_basal * actividad_fisica).round(2)
     end
 
     #
@@ -95,7 +95,7 @@ class Paciente < Persona
     # @return [Float] gasto energético total
     #
     def gasto_energetico_total
-        gasto_energetico_basal + efecto_termogeno + gasto_actividad_fisica
+        (gasto_energetico_basal + efecto_termogeno + gasto_actividad_fisica).round(2)
     end
 
 end
