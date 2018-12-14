@@ -54,4 +54,12 @@ class Paciente < Persona
         antropometria.imc
     end
 
+    def gasto_energetico_basal
+        if(antropometria.sexo == 0)
+            return (10 * antropometria.peso) + (6.25 * antropometria.talla) - (5* antropometria.edad) - 161
+        else 
+            return (10 * antropometria.peso) + (6.25 * antropometria.talla) - (5* antropometria.edad) + 5
+        end
+    end
+
 end
