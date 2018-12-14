@@ -366,6 +366,11 @@ RSpec.describe Prct06 do
 			expect(@maria.gasto_actividad_fisica).to eq(182.418)
 			expect(@jose.gasto_actividad_fisica).to eq(985.8510000000001)
 		end
+
+		it "Probando cálculo de gasto energético total" do
+			expect(@belen.gasto_energetico_total).to eq(15710.556)
+			expect(@manuel.gasto_energetico_total).to eq(17504.000500000002)
+		end
 	end
 
 end
