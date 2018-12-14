@@ -54,22 +54,46 @@ class Paciente < Persona
         antropometria.imc
     end
 
+    #
+    # Calcula el gasto energético basal
+    # requerimiento energético del individuo en reposo
+    #
+    # @return [Float] gasto energético basal
+    #
     def gasto_energetico_basal
         if(antropometria.sexo == 0)
-            return (10 * antropometria.peso) + (6.25 * antropometria.talla) - (5* antropometria.edad) - 161
+            (10 * antropometria.peso) + (6.25 * antropometria.talla) - (5* antropometria.edad) - 161
         else 
-            return (10 * antropometria.peso) + (6.25 * antropometria.talla) - (5* antropometria.edad) + 5
+            (10 * antropometria.peso) + (6.25 * antropometria.talla) - (5* antropometria.edad) + 5
         end
     end
 
+    #
+    # Calcula el gasto energético que se necesita 
+    # para procesar los alimentos
+    #
+    # @return [Float] efecto termógeno
+    #
     def efecto_termogeno
         gasto_energetico_basal * 10
     end
 
+    #
+    # Calcula el gasto enérgetico según nivel de actividad física
+    #
+    # @return [Float] gasto energético por actividad física
+    #
     def gasto_actividad_fisica
         gasto_energetico_basal * actividad_fisica
     end
 
+    #
+    # Calcula el gasto energético total 
+    # corresponde a la recomendación diaria de calorías 
+    # para satisfacer los requerimientos del individuo
+    #
+    # @return [Float] gasto energético total
+    #
     def gasto_energetico_total
         gasto_energetico_basal + efecto_termogeno + gasto_actividad_fisica
     end
