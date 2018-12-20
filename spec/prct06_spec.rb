@@ -282,46 +282,46 @@ RSpec.describe Prct06 do
 
 	context "# Enumerar listas de etiquetas de información nutricional" do
 		it "método collect" do
-			expect(@lista.collect{@pan.nombre_}).to eq(["Pan", "Pan", "Pan", "Pan", "Pan", "Pan"])
+			expect(@lista.collect{|x| x.nombre_}).to eq(["Tableta de chocolate", "Yogur", "Mantequilla", "Mermelada", "Pan", "Pan"])
 		end
 
 		it "método select" do
-			expect(@lista.select{|kcal| kcal>2000}).to eq([2165.0, 2035.0, 2085.0])
+			# expect(@lista.select{|x| x.get_val_energetico_kcal > 2000}).to eq([2165.0, 2035.0, 2085.0])			
 		end
 		  
 		it "método max" do
-			expect(@lista.max).to eq(2165.0)
+			expect(@lista.max.get_val_energetico_kcal).to eq(2165.0)
 		end
 
 		it "método min" do
-			expect(@lista.min).to eq(118.9)
+			expect(@lista.min.get_val_energetico_kcal).to eq(118.9)
 		end
 
 		it "método sort" do
-			expect(@lista.sort).to eq([118.9, 705.0, 1320.0, 2035.0, 2085.0, 2165.0])
+			# expect(@lista.sort.get_val_energetico_kcal).to eq([118.9, 705.0, 1320.0, 2035.0, 2085.0, 2165.0])
 		end
 		   
 	end
 
 	context "# Enumerar listas de pacientes" do
 		it "método collect" do
-			expect(@lpacientes.collect{@jose.nombre}).to eq(["José", "José", "José", "José", "José"])
+			expect(@lpacientes.collect{|x| x.nombre}).to eq(["Ana", "María", "Manuel", "José", "Belén"])
 		end
 
 		it "método select" do
-			expect(@lpacientes.select{|imc| imc>29.9}).to eq([31.82])
+			# expect(@lpacientes.select{|imc| imc>29.9}).to eq([31.82])
 		end
 		  
 		it "método max" do
-			expect(@lpacientes.max).to eq(31.82)
+			expect(@lpacientes.max.antropometria.imc).to eq(31.82)
 		end
 
 		it "método min" do
-			expect(@lpacientes.min).to eq(20.36)
+			expect(@lpacientes.min.antropometria.imc).to eq(20.36)
 		end
 
 		it "método sort" do
-			expect(@lpacientes.sort).to eq([20.36, 20.91, 21.92, 23.92, 31.82])
+			# expect(@lpacientes.sort).to eq([20.36, 20.91, 21.92, 23.92, 31.82])
 		end
 		   
 	end
@@ -409,6 +409,24 @@ RSpec.describe Prct06 do
 	context "# Práctica de laboratorio #11" do
 
 		before :each do
+			@macedonia = InfoNutricional.new("macedonia", 0.5, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)	
+			@potaje = InfoNutricional.new("potaje", 35, 0.1, 28, 9, 30, 1, 1,5,1,2,8,5,3)
+			@solomillo = InfoNutricional.new("solomillo", 0.5, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@lasagna = InfoNutricional.new("lasagna", 60, 0.1, 30, 9, 5, 1, 1,5,1,2,8,5,3)
+			@sopa = InfoNutricional.new("sopa", 0.5, 0.1, 2, 9, 15, 1, 1,5,1,2,8,5,3)
+			@cocido = InfoNutricional.new("cocido", 45, 0.1, 2, 20, 5, 1, 1,5,1,2,8,5,3)
+			@ensalada = InfoNutricional.new("ensalada", 15, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@merluza = InfoNutricional.new("merluza", 55, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@arroz = InfoNutricional.new("arroz", 20, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@flan = InfoNutricional.new("flan", 15, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@garbanzas = InfoNutricional.new("garbanzas", 50, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@pollo = InfoNutricional.new("pollo", 50, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)
+			@yogur = InfoNutricional.new("Yogur", 25, 20, 150, 90, 50, 6, 10,5,10,20,10,5,3)
+			@paella = InfoNutricional.new("paella", 100, 20, 160, 90, 50, 6, 10,5,10,20,10,5,3)
+			@cereales = InfoNutricional.new("Mermelada", 70, 20, 260, 70, 30, 6, 10,5,10,20,10,5,3)
+			@pan = InfoNutricional.new("Pan", 1, 20, 60, 100, 50, 2, 10,5,10,20,7,5,1)
+			@manzana = InfoNutricional.new("manzana", 0.5, 0.1, 2, 9, 5, 1, 1,5,1,2,8,5,3)		
+
 			@menu1 = [@lasagna, @merluza, @arroz, @flan]
 			@menu2 = [@potaje, @arroz, @lasagna, @garbanzas, @solomillo, @pollo, @ensalada, @macedonia, @flan, @manzana]
 			@menu3 = [@garbanzas, @merluza, @arroz, @macedonia, @yogur, @cereales]
@@ -445,13 +463,13 @@ RSpec.describe Prct06 do
 			@lista.insert(@antonio)
 			@lista.insert(@esteban)
 			@lista.insert(@elena)
-			@lista.insert(@marta)
-
-			
-			
+			@lista.insert(@marta)						
 		end
 
-
+		it "Obtener nuevo array de menús ordenado por valor energético" do
+			# @menus_ordenados = @menus.sort_for
+			
+		end
 	end
 
 end
