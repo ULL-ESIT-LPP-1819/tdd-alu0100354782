@@ -407,19 +407,51 @@ RSpec.describe Prct06 do
 	end
 
 	context "# Práctica de laboratorio #11" do
-		@menu1 = [@lasagna, @merluza, @arroz, @flan]
-		@menu2 = [@potaje, @arroz, @lasagna, @garbanzas, @solomillo, @pollo, @ensalada, @macedonia, @flan, @manzana]
-		@menu3 = [@garbanzas, @merluza, @arroz, @macedonia, @yogur, @cereales]
-		@menu4 = [@sopa, @cocido, @garbanzas, @flan, @pan, @solomillo, @pollo, @ensalada, @merluza, @yogur, @paella]
-		@menu5 = [@solomillo, @lasagna, @merluza, @arroz, @yogur, @manzana]
-		@menu6 = [@sopa, @arroz, @garbanzas, @solomillo, @pollo, @ensalada, @macedonia, @flan, @manzana]
-		@menu7 = [@garbanzas, @merluza, @arroz, @macedonia, @yogur, @cereales]
-		@menu8 = [@potaje, @garbanzas, @flan, @pan, @solomillo, @pollo, @ensalada, @merluza, @yogur, @paella]
-		@menu9 = [@garbanzas, @pan, @arroz, @macedonia, @yogur]
-		@menu10 = [@cocido, @garbanzas, @pan, @solomillo, @pollo, @ensalada, @merluza, @yogur, @paella]
 
-		@menus = @menu1.zip(@menu2, @menu3, @menu4, @menu5, @menu6, @menu7, @menu8, @menu9, @menu10)
-		
+		before :each do
+			@menu1 = [@lasagna, @merluza, @arroz, @flan]
+			@menu2 = [@potaje, @arroz, @lasagna, @garbanzas, @solomillo, @pollo, @ensalada, @macedonia, @flan, @manzana]
+			@menu3 = [@garbanzas, @merluza, @arroz, @macedonia, @yogur, @cereales]
+			@menu4 = [@sopa, @cocido, @garbanzas, @flan, @pan, @solomillo, @pollo, @ensalada, @merluza, @yogur, @paella]
+			@menu5 = [@solomillo, @lasagna, @merluza, @arroz, @yogur, @manzana]
+			@menu6 = [@sopa, @arroz, @garbanzas, @solomillo, @pollo, @ensalada, @macedonia, @flan, @manzana]
+			@menu7 = [@garbanzas, @merluza, @arroz, @macedonia, @yogur, @cereales]
+			@menu8 = [@potaje, @garbanzas, @flan, @pan, @solomillo, @pollo, @ensalada, @merluza, @yogur, @paella]
+			@menu9 = [@garbanzas, @pan, @arroz, @macedonia, @yogur]
+			@menu10 = [@cocido, @garbanzas, @pan, @solomillo, @pollo, @ensalada, @merluza, @yogur, @paella]
+
+			# array con 10 menús
+			@menus = @menu1.zip(@menu2, @menu3, @menu4, @menu5, @menu6, @menu7, @menu8, @menu9, @menu10)
+
+			@ana = Paciente.new("Ana", "Hernández", true, true, Antropometria.new(35, 50.24, 1.55, 0, 48.95, 60.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [6,8.7,8.2], [7,7,5], [10,8.9,9,4], [10,10.5], [6,7]))	
+			@maria = Paciente.new("María", "Suárez", true, true, Antropometria.new(28, 70.24, 1.79, 0, 65.35, 75.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [6,7.7,5.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
+			@manuel = Paciente.new("Manuel", "Díaz", true, true, Antropometria.new(50, 80.44, 1.59, 1, 68.35, 80.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [7,8.3,5.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
+			@jose = Paciente.new("José", "Hernández", true, true, Antropometria.new(43, 85.44, 1.89, 1, 70.35, 72.5, [5.8, 6, 5.2], [5,5,7], [20,18,21], [12,10,11.4], [6.1,7.1,5.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
+			@belen = Paciente.new("Belén", "Márquez", true, true, Antropometria.new(31, 60.24, 1.72, 0, 70.35, 81.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [8,8.7,9.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
+			@sergio = Paciente.new("Sergio", "Reyes", true, true, Antropometria.new(36, 80.24, 1.90, 0, 70.35, 81.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [8,8.7,9.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
+			@antonio = Paciente.new("Antonio", "Rodríguez", true, true, Antropometria.new(25, 70.24, 1.70, 0, 70.35, 81.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [8,8.7,9.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
+			@esteban = Paciente.new("Estaban", "Márquez", true, true, Antropometria.new(21, 85.10, 1.82, 0, 70.35, 81.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [8,8.7,9.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
+			@elena = Paciente.new("Elena", "González", true, true, Antropometria.new(27, 55, 1.60, 0, 60.35, 91.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [8,8.7,9.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
+			@marta = Paciente.new("Marta", "García", true, true, Antropometria.new(19, 60.24, 1.70, 0, 60.35, 91.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [8,8.7,9.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
+
+			# lista con 10 individuos
+			@individuos = List.new(nil, nil)
+			@lista.insert(@ana)
+			@lista.insert(@maria)
+			@lista.insert(@manuel)
+			@lista.insert(@jose)
+			@lista.insert(@belen)
+			@lista.insert(@sergio)
+			@lista.insert(@antonio)
+			@lista.insert(@esteban)
+			@lista.insert(@elena)
+			@lista.insert(@marta)
+
+			
+			
+		end
+
+
 	end
 
 end
