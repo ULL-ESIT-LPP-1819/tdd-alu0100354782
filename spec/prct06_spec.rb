@@ -406,4 +406,20 @@ RSpec.describe Prct06 do
 
 	end
 
+	context "# Práctica de laboratorio #11" do
+		@menu1 = [@lasagna, @merluza, @arroz, @flan]
+		@menu2 = [@potaje, @arroz, @lasagna, @garbanzas, @solomillo, @pollo, @ensalada, @macedonia, @flan, @manzana]
+		@menu3 = [@garbanzas, @merluza, @arroz, @macedonia, @yogur, @cereales]
+		@menu4 = [@sopa, @cocido, @garbanzas, @flan, @pan, @solomillo, @pollo, @ensalada, @merluza, @yogur, @paella]
+		@menu5 = [@solomillo, @lasagna, @merluza, @arroz, @yogur, @manzana]
+		@menu6 = [@sopa, @arroz, @garbanzas, @solomillo, @pollo, @ensalada, @macedonia, @flan, @manzana]
+		@menu7 = [@garbanzas, @merluza, @arroz, @macedonia, @yogur, @cereales]
+		@menu8 = [@potaje, @garbanzas, @flan, @pan, @solomillo, @pollo, @ensalada, @merluza, @yogur, @paella]
+		@menu9 = [@garbanzas, @pan, @arroz, @macedonia, @yogur]
+		@menu10 = [@cocido, @garbanzas, @pan, @solomillo, @pollo, @ensalada, @merluza, @yogur, @paella]
+
+		@menus = @menu1.zip(@menu2, @menu3, @menu4, @menu5, @menu6, @menu7, @menu8, @menu9, @menu10)
+		
+	end
+
 end
