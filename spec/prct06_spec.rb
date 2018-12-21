@@ -439,7 +439,7 @@ RSpec.describe Prct06 do
 			@menu10 = [@cocido, @garbanzas, @pan, @solomillo, @pollo, @ensalada, @merluza, @yogur, @paella]
 
 			# array con 10 menús
-			@menus = @menu1.zip(@menu2, @menu3, @menu4, @menu5, @menu6, @menu7, @menu8, @menu9, @menu10)
+			@menus = [@menu1, @menu2, @menu3, @menu4, @menu5, @menu6, @menu7, @menu8, @menu9, @menu10]
 
 			@ana = Paciente.new("Ana", "Hernández", true, true, Antropometria.new(35, 50.24, 1.55, 0, 48.95, 60.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [6,8.7,8.2], [7,7,5], [10,8.9,9,4], [10,10.5], [6,7]))	
 			@maria = Paciente.new("María", "Suárez", true, true, Antropometria.new(28, 70.24, 1.79, 0, 65.35, 75.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [6,7.7,5.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
@@ -454,21 +454,83 @@ RSpec.describe Prct06 do
 
 			# lista con 10 individuos
 			@individuos = List.new(nil, nil)
-			@lista.insert(@ana)
-			@lista.insert(@maria)
-			@lista.insert(@manuel)
-			@lista.insert(@jose)
-			@lista.insert(@belen)
-			@lista.insert(@sergio)
-			@lista.insert(@antonio)
-			@lista.insert(@esteban)
-			@lista.insert(@elena)
-			@lista.insert(@marta)						
+			@individuos.insert(@ana)
+			@individuos.insert(@maria)
+			@individuos.insert(@manuel)
+			@individuos.insert(@jose)
+			@individuos.insert(@belen)
+			@individuos.insert(@sergio)
+			@individuos.insert(@antonio)
+			@individuos.insert(@esteban)
+			@individuos.insert(@elena)
+			@individuos.insert(@marta)						
 		end
 
-		it "Obtener nuevo array de menús ordenado por valor energético" do
-			# @menus_ordenados = @menus.sort_for
+		it "Obtener nuevo array de menús ordenado con for por valor energético" do						
+				
+			# puts "\n\tArray de menus sin ordenar:"
+			# for i in 0..@menus.size-1
+            # 	puts "\t  #{@menus[i].collect{|etiqueta| etiqueta.get_val_energetico_kcal}.reduce(:+)}"
+			# end
+
+			menus_ordenados = @menus
+            
+                
+			swapped = true
+			n = menus_ordenados.size-1
+			while swapped do
+				swapped = false
+				for i in 0..n-1
+					if menus_ordenados[i].collect{|etiqueta| etiqueta.get_val_energetico_kcal}.reduce(:+) > menus_ordenados[i+1].collect{|etiqueta| etiqueta.get_val_energetico_kcal}.reduce(:+)
+						menus_ordenados[i], menus_ordenados[i + 1] = menus_ordenados[i + 1], menus_ordenados[i]
+						swapped = true
+					end
+				end
+			end
+				
+						
 			
+            # puts "\n\tArray de menus ordenado con for:"
+            # for i in 0..@each.size-1
+            # 	puts "\t  #{@each[i].collect{|etiqueta| etiqueta.get_val_energetico_kcal}.reduce(:+)}"
+			# end
+			
+		end
+
+		it "Obtener nueva lista de individuos ordenados con for por gasto energético total" do
+			individuos_ordenados = @individuos
+
+			i = 0
+			pos = 0
+
+			while i < individuos_ordenados.size-1 do
+				menor = individuos_ordenados[i]
+				pos = i
+				j = 1+i
+				while j < individuos_ordenados.size do
+					if individuos_ordenados[j] < menor
+						menor = individuos_ordenados[j]
+						pos = j
+					end
+					j += 1
+				end
+				individuos_ordenados[pos] = individuos_ordenados[i]
+				individuos_ordenados[i] = menor
+				i += 1
+			end			
+
+		end
+
+		it "Obtener nuevo array de menús ordenado con each por valor energético" do
+		end
+		
+		it "Obtener nueva lista de individuos ordenados con each por gasto energético total" do
+		end
+
+		it "Obtener nuevo array de menús ordenado con sort por valor energético" do
+		end
+		
+		it "Obtener nueva lista de individuos ordenados con sort por gasto energético total" do
 		end
 	end
 
