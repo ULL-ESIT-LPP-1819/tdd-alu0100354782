@@ -11,7 +11,7 @@ class List
 
 	include Enumerable
 
-	attr_accessor :head, :tail
+	attr_accessor :head, :tail, :size
 
 	#
 	# Constructor
@@ -22,6 +22,7 @@ class List
 	def initialize(head, tail)
 		@head = head
 		@tail = tail
+		@size = 0
 	end
 
 	#
@@ -41,6 +42,8 @@ class List
 	# @return [<Type>] elemento insertado
 	#
 	def insert(value)
+		@size += 1
+
 		if @head  == nil
 			@head = Node.new(value,nil,nil)
 			@tail = @head
@@ -48,7 +51,7 @@ class List
 			node = Node.new(value,nil,@tail)
 			@tail.next = node
 			@tail = node
-		end
+		end		
 	end
 
 	#
@@ -57,6 +60,8 @@ class List
 	# @return [<Type>] elemento extraído
 	#
 	def extract
+		@size -= 1
+
 		if @head == nil
 			@head = nil
 			@tail = nil
@@ -98,6 +103,45 @@ class List
 			node = node.next
 		end
 
+	end
+
+	#
+	# Sobrecarga del operador []
+	#
+	# @param [<Type>] index <description>
+	#
+	# @return [<Type>] <description>
+	#
+	def [](index)
+		if (index == 0)
+			return head.value
+		elsif index == size
+			return tail.value
+		end
+	
+		aux = @head	
+		for i in 0..index-1
+			aux = aux.next		
+		end
+	
+		aux.value		
+	end
+
+	def []=(index,val)
+
+		if (index == 0)
+			head.value = val
+		elsif index == size
+			tail.value = val
+		end
+	
+		aux = @head	
+		for i in 0..index-1
+			aux = aux.next		
+		end
+	
+		aux.value = val
+	
 	end
 
 end
