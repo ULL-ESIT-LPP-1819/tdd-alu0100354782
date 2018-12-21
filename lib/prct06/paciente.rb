@@ -50,9 +50,7 @@ class Paciente < Persona
 		antropometria.imc <=> paciente.antropometria.imc
 	end
     
-    def enumerar
-        antropometria.imc
-    end
+    
 
     #
     # Calcula el gasto energético basal

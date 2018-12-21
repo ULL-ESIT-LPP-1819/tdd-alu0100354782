@@ -452,6 +452,17 @@ RSpec.describe Prct06 do
 			@elena = Paciente.new("Elena", "González", true, true, Antropometria.new(27, 55, 1.60, 0, 60.35, 91.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [8,8.7,9.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
 			@marta = Paciente.new("Marta", "García", true, true, Antropometria.new(19, 60.24, 1.70, 0, 60.35, 91.5, [5.8, 6, 6.2], [5,5,7], [20,18,21], [12,10,11.4], [8,8.7,9.2], [9,7,8], [10,8.9,9,4], [10,10.5], [6,7]))	
 
+			@ana.actividad_fisica = 0.0
+			@maria.actividad_fisica = 0.12
+			@manuel.actividad_fisica = 0.27
+			@jose.actividad_fisica = 0.54
+			@belen.actividad_fisica = 0.54
+			@sergio.actividad_fisica = 0.27
+			@antonio.actividad_fisica = 0.12
+			@esteban.actividad_fisica = 0.27
+			@elena.actividad_fisica = 0.12
+			@marta.actividad_fisica = 0.0
+
 			# lista con 10 individuos
 			@individuos = List.new(nil, nil)
 			@individuos.insert(@ana)
@@ -522,15 +533,53 @@ RSpec.describe Prct06 do
 		end
 
 		it "Obtener nuevo array de menús ordenado con each por valor energético" do
+			# menus_ordenados = @menus
+
+			# @menus.each do |i|
+			# 	menus_ordenados.each_with_index do |j,index|
+			# 		if i.collect{|etiqueta| etiqueta.get_val_energetico_kcal}.reduce(:+) <= j.collect{|etiqueta| etiqueta.get_val_energetico_kcal}.reduce(:+)
+			# 			menus_ordenados.insert(index,i)
+			# 			break
+			# 		elsif index == menus_ordenados.size-1
+			# 			menus_ordenados.insert(index+1, i)
+			# 			break
+			# 		end
+			# 	end
+			# end
 		end
 		
 		it "Obtener nueva lista de individuos ordenados con each por gasto energético total" do
+			# individuos_ordenados = @individuos
+			
+			# @individuos.each do |i|				
+			# 	individuos_ordenados.each_with_index do |j,index|
+			# 		if i.gasto_energetico_total <= j.gasto_energetico_total
+			# 			p individuos_ordenados.size
+			# 			individuos_ordenados.insert(i)
+			# 			break
+			# 		elsif index == individuos_ordenados.size-1
+			# 			p individuos_ordenados.size
+			# 			individuos_ordenados.insert(i)
+			# 			break
+			# 		end
+			# 	end
+			# end
+
+			# p @individuos[0].gasto_energetico_total
 		end
 
+		
+
 		it "Obtener nuevo array de menús ordenado con sort por valor energético" do
+			menus_ordenados = @menus.collect{|menu| menu.reduce(0){|i, obj|i + obj.get_val_energetico_kcal}}
+			menus_ordenados = menus_ordenados.sort{|x, y| x <=> y}
+
+			expect(menus_ordenados).to eq([1919.6, 2437.6000000000004, 3011.7000000000003, 3228.0, 3678.5000000000005, 4992.1, 4992.1, 6694.9, 7058.3, 7103.200000000001])
 		end
 		
 		it "Obtener nueva lista de individuos ordenados con sort por gasto energético total" do
+			# individuos_ordenados = @individuos.sort{|x, y| x <=> y}
+			# expect(individuos_ordenados).to eq([1919.6, 2437.6000000000004, 3011.7000000000003, 3228.0, 3678.5000000000005, 4992.1, 4992.1, 6694.9, 7058.3, 7103.200000000001])
 		end
 	end
 
