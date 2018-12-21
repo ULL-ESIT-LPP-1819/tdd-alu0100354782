@@ -36,4 +36,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/prct06.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ULL-ESIT-LPP-1819/tdd-alu0100354782.
