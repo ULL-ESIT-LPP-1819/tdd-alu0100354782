@@ -1,8 +1,6 @@
-[![Build Status](https://travis-ci.org/ULL-ESIT-LPP-1819/tdd-alu0100354782.svg?branch=master)](https://travis-ci.org/ULL-ESIT-LPP-1819/tdd-alu0100354782)
+# tdd-alu0100354782
 
-[![Coverage Status](https://coveralls.io/repos/github/ULL-ESIT-LPP-1819/tdd-alu0100354782/badge.svg?branch=master)](https://coveralls.io/github/ULL-ESIT-LPP-1819/tdd-alu0100354782?branch=master)
-
-# Prct06
+[![Build Status](https://travis-ci.org/ULL-ESIT-LPP-1819/tdd-alu0100354782.svg?branch=master)](https://travis-ci.org/ULL-ESIT-LPP-1819/tdd-alu0100354782)   [![Coverage Status](https://coveralls.io/repos/github/ULL-ESIT-LPP-1819/tdd-alu0100354782/badge.svg?branch=master)](https://coveralls.io/github/ULL-ESIT-LPP-1819/tdd-alu0100354782?branch=master) 
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/prct06`. To experiment with that code, run `bin/console` for an interactive prompt.
 
