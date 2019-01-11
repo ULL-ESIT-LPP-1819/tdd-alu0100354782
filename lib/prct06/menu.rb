@@ -8,6 +8,12 @@ class Menu
     
     attr_accessor :dia, :titulo, :ingesta, :desayuno, :almuerzo, :cena, :cantidad
     
+    #
+	# Constructor
+	#
+	# @param [<String>] dia <día de la semana>
+	# @param [<Type>] block <bloque DSL>
+	#
     def initialize(dia, &block)
         @dia = dia
         @desayuno = []
@@ -31,10 +37,20 @@ class Menu
         end
     end
     
+    #
+	# Definir título del menú
+	#
+	# @param [<String>] t <título del menú>
+	#
     def titulo(t)
 		@titulo = t
     end
     
+    #
+	# Definir ingesta
+	#
+	# @param [<integer>] options <ingesta máxima y mínima>
+	#
     def ingesta(i, options = {})
 		@ingesta = i
 		@ingesta << "(#{options[:min]})" if options[:min]
@@ -42,6 +58,11 @@ class Menu
 
     end
     
+    #
+	# Definir alimentos del desayuno
+	#
+	# @param [<Type>] options <propiedades de los alimentos>
+	#
     def desayuno(options = {})
         porcion = 0
         @cantidad.each do
@@ -67,6 +88,11 @@ class Menu
                         0))
     end
     
+    #
+	# Definir alimentos del almuerzo
+	#
+	# @param [<Type>] options <propiedades de los alimentos>
+	#
     def almuerzo(options = {})
         porcion = 0
         @cantidad.each do
@@ -92,6 +118,11 @@ class Menu
                         0))
     end
     
+    #
+	# Definir alimentos de la cena
+	#
+	# @param [<Type>] options <propiedades de los alimentos>
+	#
     def cena(options = {})
         porcion = 0
         @cantidad.each do
@@ -117,6 +148,11 @@ class Menu
                         0))
     end
     
+    #
+	# Calcular valor energético
+	#
+	# @return [float] valor energético en kcal
+	#
     def kcal
         x = @desayuno.collect{|a| a.get_val_energetico_kcal}
         total = x.inject(0, :+)
@@ -130,7 +166,41 @@ class Menu
         total
     end
     
-    
+    #
+	# Sobrecarga del método to_s
+	#
+	# @return [String] Menú de día completo
+	#
+    def to_s
+        s = "Titulo: #{@titulo}\n"
+        s << @dia + "\t\t\t\tComposicion nutricional\n"
+        s << "=========================================================================================================\n"
+        s << "\t\t\t\tgrasas\tcarbohidratos\tproteinas\tfibra\tsal\tvalor energetico\n"
+        s << "Desayuno\n"
+        
+        @desayuno.each do |d|
+            s << "\"#{d.nombre_}\"".ljust(32)
+            s << "#{d.grasas_}\t#{d.hidratos_}\t\t#{d.proteinas_}\t\t#{d.fibra_}\t#{d.sal_}\t#{d.get_val_energetico_kcal}\n"
+        end
+        
+        s << "Almuerzo\n"
+        
+        @almuerzo.each do |a|
+            s << "\"#{a.nombre_}\"".ljust(32)
+            s << "#{a.grasas_}\t#{a.hidratos_}\t\t#{a.proteinas_}\t\t#{a.fibra_}\t#{a.sal_}\t#{a.get_val_energetico_kcal}\n"
+        end
+        
+        s << "Cena\n"
+        
+        @cena.each do |c|
+            s << "\"#{c.nombre_}\"".ljust(32)
+            s << "#{c.grasas_}\t#{c.hidratos_}\t\t#{c.proteinas_}\t\t#{c.fibra_}\t#{c.sal_}\t#{c.get_val_energetico_kcal}\n"
+        end
+        
+        s << "\nValor energetico total".ljust(33) << "#{self.kcal}"
+        
+        s
+    end
     
     
 end
