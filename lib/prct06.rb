@@ -4,6 +4,7 @@ require "prct06/list"
 require "prct06/persona"
 require "prct06/paciente"
 require "prct06/antropometria"
+require "prct06/menu"
 
 #
 # <Description>
